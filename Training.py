@@ -59,7 +59,7 @@ model.compile(
 model.fit(
     train_data,
     validation_data=val_data,
-    epochs=9
+    epochs=45
 )
 
 for layer in base_model.layers[-30:]:
@@ -74,7 +74,7 @@ model.compile(
 model.fit(
     train_data,
     validation_data=val_data,
-    epochs=11,
+    epochs=35,
 
 )
 
