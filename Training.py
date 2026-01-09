@@ -7,9 +7,10 @@ from tensorflow.keras.models import Model
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from sklearn.metrics import confusion_matrix, classification_report
 
-DATA_PATH = r"C:\Users\Xp677\Desktop\University\Machine Learning\ML_DL PROJECT\Data\proccessed"
+DATA_PATH = r"C:\Users\Xp677\Desktop\University\Machine Learning\CoinBot\Data\proccessed"
 IMG_SIZE = (224, 224)
 BATCH_SIZE = 32
+
 
 datagen = ImageDataGenerator(
     preprocessing_function=preprocess_input,
@@ -58,7 +59,7 @@ model.compile(
 model.fit(
     train_data,
     validation_data=val_data,
-    epochs=8
+    epochs=9
 )
 
 for layer in base_model.layers[-30:]:
@@ -73,7 +74,8 @@ model.compile(
 model.fit(
     train_data,
     validation_data=val_data,
-    epochs=12
+    epochs=11,
+
 )
 
 model.save("coin_model.keras")

@@ -3,6 +3,8 @@ import struct
 import cv2
 import numpy as np
 from tensorflow.keras.models import load_model
+from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
+
 #Abdullah Aburous
 # load trained model
 model = load_model("coin_model.keras")
@@ -51,8 +53,9 @@ while True:
     # decode image
     img = cv2.imdecode(np.frombuffer(data, np.uint8), cv2.IMREAD_COLOR)
     img = cv2.resize(img, (224, 224))
-    img = img.astype("float32") / 255.0
+    img = img.astype("float32")
     img = np.expand_dims(img, axis=0)
+    img = preprocess_input(img)
 
     # predict
     pred = model.predict(img)[0]
