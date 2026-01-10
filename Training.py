@@ -74,7 +74,7 @@ model.compile(
 model.fit(
     train_data,
     validation_data=val_data,
-    epochs=35,
+    epochs=30,
 
 )
 
