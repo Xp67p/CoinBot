@@ -1,16 +1,13 @@
 import tensorflow as tf
-import numpy as np
 from tensorflow.keras.applications import MobileNetV2
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
 from tensorflow.keras.layers import Dense, GlobalAveragePooling2D
 from tensorflow.keras.models import Model
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from sklearn.metrics import confusion_matrix, classification_report
 
 DATA_PATH = r"C:\Users\Xp677\Desktop\University\Machine Learning\CoinBot\Data\proccessed"
 IMG_SIZE = (224, 224)
 BATCH_SIZE = 32
-
 
 datagen = ImageDataGenerator(
     preprocessing_function=preprocess_input,
@@ -74,16 +71,7 @@ model.compile(
 model.fit(
     train_data,
     validation_data=val_data,
-    epochs=30,
-
+    epochs=30
 )
 
 model.save("coin_model.keras")
-
-preds = model.predict(val_data)
-y_pred = np.argmax(preds, axis=1)
-y_true = val_data.classes
-
-print("accuracy:", round(np.mean(y_pred == y_true) * 100, 2))
-print(confusion_matrix(y_true, y_pred))
-print(classification_report(y_true, y_pred, target_names=list(val_data.class_indices.keys())))
