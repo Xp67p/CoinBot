@@ -19,7 +19,6 @@ if 'image' not in st.session_state:
 if 'view_predictions' not in st.session_state:
     st.session_state.view_predictions = False
 
-# Cashe identical prediction request, improves UX
 @st.cache_data(show_spinner=True)
 def cashed_predict(img, **params):
     st.session_state.model.predict_image(img)
@@ -94,3 +93,19 @@ if st.session_state.view_predictions:
     fig, ax = coin_model.plot_predictions(predictions)
 
     st.pyplot(fig)
+
+
+# py -m streamlit run gui.py
+
+
+'''
+untested data:
+
+
+https://www.dreamstime.com/stock-photo-half-jordanian-dinar-coin-isolated-white-background-image91497720
+
+
+https://thumbs.dreamstime.com/z/piastres-half-dirham-fils-coin-today-abdullah-ibn-al-hussein-circulation-serie-bank-jordan-reverse-issue-isolated-white-173054085.jpg?ct=jpeg
+
+
+'''
