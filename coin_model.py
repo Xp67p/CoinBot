@@ -38,3 +38,5 @@ def plot_predictions(predictions):
     ax.set_title("Prediction Confidence")
 
     return fig, ax
+
+
