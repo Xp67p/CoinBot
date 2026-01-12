@@ -15,7 +15,6 @@ labels = {
     2: "10",
     3: "5"
 }
-
 reverse_labels = {
     "50": 0,
     "25": 1,
@@ -42,7 +41,6 @@ while True:
         break
 
     size = struct.unpack("!I", raw_size)[0]
-
     data = b""
     while len(data) < size:
         packet = conn.recv(1024)
