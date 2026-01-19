@@ -1,4 +1,4 @@
-Coin Bot – CNN-Based Jordanian Coin Classification
+CNN-Based Jordanian Coin Classification
 
 This project implements a convolutional neural network (CNN) to classify Jordanian coin denominations (5 piasters, 10 piasters, 25 piasters, and 1/2 dinar) using supervised deep learning. The model is trained using transfer learning with MobileNetV2 and evaluated on a structured dataset of coin images.
 
