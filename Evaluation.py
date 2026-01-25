@@ -35,10 +35,10 @@ labels = list(val_data.class_indices.keys())
 accuracy = np.mean(y_pred == y_true)
 print("Accuracy:", round(accuracy * 100, 2))
 
-# classification report
+# classification 
 print(classification_report(y_true, y_pred, target_names=labels))
 
-# colored confusion matrix
+# sns confusion matrix
 cm = confusion_matrix(y_true, y_pred)
 plt.figure(figsize=(6,5))
 sns.heatmap(
@@ -53,3 +53,4 @@ plt.xlabel("Predicted")
 plt.ylabel("True")
 plt.title("Confusion Matrix")
 plt.show()
+
